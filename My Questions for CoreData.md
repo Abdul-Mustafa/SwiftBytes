@@ -225,7 +225,7 @@ It significantly reduces the boilerplate code required for setting up Core Data.
 Let me know if you'd like further clarification or examples!
 </details>
 <details>
-<summary>8. What is Core Data stack?<summary>
+<summary>8. What is Core Data stack?</summary>
 Answers: 1. Persistent Container (NSPersistentContainer)
 The NSPersistentContainer is the central object in the Core Data stack. It simplifies the setup and management of the stack. It contains the following:
 

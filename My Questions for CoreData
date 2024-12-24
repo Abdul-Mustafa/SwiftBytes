@@ -1,0 +1,72 @@
+        1. Wha is AppDelegate in an iOS application?
+Answer: The AppDelegate in an iOS application is a class that conforms to the UIApplicationDelegate protocol. It is responsible for handling high-level application events, such as:
+-Application launch
+-State transitions (e.g., going to the background or foreground)
+-Handling notifications
+-Managing the Core Data stack (if set up in the AppDelegate)
+-When the app starts, the system creates a singleton instance of the AppDelegate, which serves as the entry point for your app’s lifecycle.
+        2.What is shared instance?
+Answer: A shared instance refers to a singleton object, meaning a single, globally accessible instance of a class that can be used throughout your app. 
+The shared instance is typically created to provide common functionality that doesn’t require multiple copies of the object.
+
+In iOS development, shared instances are used to simplify access to resources or services. One common example is the UIApplication.shared instance, 
+which provides access to the application-level object.
+
+        3. Why Use Shared Instances?
+Answer: To avoid creating multiple instances of a resource-heavy object.
+To ensure centralized and consistent access to certain services or properties.
+To make it easier to manage global application state or configurations.
+
+        4. What is NSEntityDescription?
+Answer: NSEntityDescription is a class in Core Data that describes an entity (a data model object) within a managed object model. The entity is a representation of a table or object in your data model, and it contains information about the attributes, relationships, and configuration of an object.
+
+When you're working with Core Data, you define entities in the Data Model file (usually a .xcdatamodeld file in Xcode). Each entity represents a type of object you’ll manage (e.g., a Person entity for storing information about people, a Product entity for items in an inventory).
+
+NSEntityDescription provides the metadata and schema for an entity, allowing you to work with instances of that entity programmatically.
+
+Key points about NSEntityDescription:
+Defines Entities: It represents metadata about entities defined in your data model.
+Accessed at Runtime: You use NSEntityDescription to retrieve information about entities in your data model while the app is running.
+Stores Entity Name: Each NSEntityDescription contains the name of the entity (like Person, Product) and its properties (such as attributes and relationships).
+How does NSEntityDescription work?
+You use NSEntityDescription primarily when you need to:
+
+Fetch or Create instances of entities dynamically using the NSManagedObjectContext.
+Describe the entity's structure (attributes and relationships).
+Example Usage of NSEntityDescription
+swift
+Copy code
+let entity = NSEntityDescription.entity(forEntityName: "Person", in: context)
+forEntityName: "Person": This specifies the name of the entity you're working with (in this case, Person).
+in: context: The managed object context (context) in which the entity will be used.
+The result of this call is an NSEntityDescription object that provides the necessary information to create a NSManagedObject of type Person.
+        5. What is NSManagedObject?
+Answer: NSManagedObject is the base class for all objects in Core Data that are managed by the managed object context (MOC). These objects are essentially instances of the entities you define in your Core Data model.
+
+NSManagedObject allows you to interact with the database by providing a way to:
+
+Store data: You can store attribute values in properties of NSManagedObject.
+Fetch and Update: You can fetch, insert, delete, and modify records in Core Data.
+Key points about NSManagedObject:
+Represents Data: Each instance of NSManagedObject represents a record in the Core Data store.
+Managed Context: These objects are managed by a NSManagedObjectContext, which is responsible for managing the lifecycle of these objects (inserting, deleting, saving, etc.).
+Dynamic Properties: The properties of a NSManagedObject are dynamically provided at runtime and are accessed through setValue(_:forKey:) and value(forKey:) methods.
+Example Usage of NSManagedObject
+swift
+Copy code
+let newPerson = NSManagedObject(entity: entity!, insertInto: context)
+entity: This is the NSEntityDescription object that provides the metadata for the Person entity.
+insertInto: context: This inserts the newly created object into the context, meaning it is now managed by Core Data and will be saved to the persistent store when the context is saved.
+Setting attributes:
+swift
+Copy code
+newPerson.setValue("John", forKey: "name")
+newPerson.setValue(30, forKey: "age")
+You can set values for the properties (or attributes) of the Person object using the setValue(_:forKey:) method.
+Summary
+NSEntityDescription provides the description (metadata) for an entity defined in the data model.
+It’s used to fetch entity information at runtime.
+Example: Describes what attributes and relationships an entity has.
+NSManagedObject is an instance of the entity, used to hold data and interact with Core Data (insert, fetch, update, delete).
+Example: Represents a single object of the entity, such as one person in a "Person" table.
+Let me know if you need further explanation on how to use these classes together in Core Data!

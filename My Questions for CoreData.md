@@ -1,4 +1,5 @@
-        1. Wha is AppDelegate in an iOS application?
+<details>
+<summary>1. Wha is AppDelegate in an iOS application?<summary>
 Answer: The AppDelegate in an iOS application is a class that conforms to the UIApplicationDelegate protocol. It is responsible for handling high-level application events, such as:
 -Application launch
 -State transitions (e.g., going to the background or foreground)
@@ -13,6 +14,7 @@ The shared instance is typically created to provide common functionality that do
 
 In iOS development, shared instances are used to simplify access to resources or services. One common example is the UIApplication.shared instance, 
 which provides access to the application-level object.
+</details>
 
         4. Why Use Shared Instances?
 Answer: To avoid creating multiple instances of a resource-heavy object.

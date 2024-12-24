@@ -6,24 +6,28 @@ Answer: The AppDelegate in an iOS application is a class that conforms to the UI
 -Handling notifications
 -Managing the Core Data stack (if set up in the AppDelegate)
 -When the app starts, the system creates a singleton instance of the AppDelegate, which serves as the entry point for your app’s lifecycle.
-        2. What is UIApplication.shared.delegate?
+<details>
+
+<summary>2. What is UIApplication.shared.delegate?</summary>
 Aswer: This gives access to the shared AppDelegate instance of the app, which is responsible for managing the Core Data stack.
-        3.What is shared instance?
+</summary>
+<details>
+<summary>3.What is shared instance?</summary>
 Answer: A shared instance refers to a singleton object, meaning a single, globally accessible instance of a class that can be used throughout your app. 
 The shared instance is typically created to provide common functionality that doesn’t require multiple copies of the object.
-
+</details>
 In iOS development, shared instances are used to simplify access to resources or services. One common example is the UIApplication.shared instance, 
 which provides access to the application-level object.
 </details>
 
-       <details> 
-       <summary>4. Why Use Shared Instances?</summary>
+<details> 
+<summary>4. Why Use Shared Instances?</summary>
 Answer: To avoid creating multiple instances of a resource-heavy object.
 To ensure centralized and consistent access to certain services or properties.
 To make it easier to manage global application state or configurations.
 </details>
-
-        5. What is NSEntityDescription?
+<details>
+<summary>5. What is NSEntityDescription?</summary>
 Answer: NSEntityDescription is a class in Core Data that describes an entity (a data model object) within a managed object model. The entity is a representation of a table or object in your data model, and it contains information about the attributes, relationships, and configuration of an object.
 
 When you're working with Core Data, you define entities in the Data Model file (usually a .xcdatamodeld file in Xcode). Each entity represents a type of object you’ll manage (e.g., a Person entity for storing information about people, a Product entity for items in an inventory).
@@ -46,7 +50,9 @@ let entity = NSEntityDescription.entity(forEntityName: "Person", in: context)
 forEntityName: "Person": This specifies the name of the entity you're working with (in this case, Person).
 in: context: The managed object context (context) in which the entity will be used.
 The result of this call is an NSEntityDescription object that provides the necessary information to create a NSManagedObject of type Person.
-        6. What is NSManagedObject?
+</details>
+<details>
+<summary>6. What is NSManagedObject?</summary>
 Answer: NSManagedObject is the base class for all objects in Core Data that are managed by the managed object context (MOC). These objects are essentially instances of the entities you define in your Core Data model.
 
 NSManagedObject allows you to interact with the database by providing a way to:
@@ -76,7 +82,9 @@ Example: Describes what attributes and relationships an entity has.
 NSManagedObject is an instance of the entity, used to hold data and interact with Core Data (insert, fetch, update, delete).
 Example: Represents a single object of the entity, such as one person in a "Person" table.
 Let me know if you need further explanation on how to use these classes together in Core Data!
-       7.What is persistentContainer in Core Data?
+</details>
+<details>
+<summary>7.What is persistentContainer in Core Data?</summary>
 Answer: The persistentContainer is an instance of the NSPersistentContainer class in Core Data. It serves as a high-level interface to manage the Core Data stack, which includes:
 
 The Managed Object Model (NSManagedObjectModel)
@@ -216,7 +224,9 @@ The persistentContainer is a modern, convenient way to manage the Core Data stac
 It provides everything you need to work with Core Data: a managed object model, a persistent store, and a managed object context.
 It significantly reduces the boilerplate code required for setting up Core Data.
 Let me know if you'd like further clarification or examples!
-         8. What is Core Data stack?
+</details>
+<details>
+<summary>8. What is Core Data stack?<summary>
 Answers: 1. Persistent Container (NSPersistentContainer)
 The NSPersistentContainer is the central object in the Core Data stack. It simplifies the setup and management of the stack. It contains the following:
 
@@ -333,3 +343,4 @@ Is the backbone of the Core Data framework.
 Includes the model, coordinator, and context to manage the data lifecycle.
 Makes it easier to persist, fetch, and manipulate data in iOS apps.
 Let me know if you'd like an example of how to set up or use the Core Data stack further!
+</details>

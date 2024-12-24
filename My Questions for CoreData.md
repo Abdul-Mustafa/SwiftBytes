@@ -6,7 +6,7 @@ Answer: The AppDelegate in an iOS application is a class that conforms to the UI
 -Handling notifications
 -Managing the Core Data stack (if set up in the AppDelegate)
 -When the app starts, the system creates a singleton instance of the AppDelegate, which serves as the entry point for your app’s lifecycle.
-<details>
+</details>
 
 <summary>2. What is UIApplication.shared.delegate?</summary>
 Aswer: This gives access to the shared AppDelegate instance of the app, which is responsible for managing the Core Data stack.

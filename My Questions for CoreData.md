@@ -1,5 +1,5 @@
 <details>
-<summary>1. Wha is AppDelegate in an iOS application?</summary>
+          <summary>1. Wha is AppDelegate in an iOS application?</summary>
 Answer: The AppDelegate in an iOS application is a class that conforms to the UIApplicationDelegate protocol. It is responsible for handling high-level application events, such as:
 -Application launch
 -State transitions (e.g., going to the background or foreground)
@@ -16,10 +16,12 @@ In iOS development, shared instances are used to simplify access to resources or
 which provides access to the application-level object.
 </details>
 
-        4. Why Use Shared Instances?
+       <details> 
+       <summary>4. Why Use Shared Instances?</summary>
 Answer: To avoid creating multiple instances of a resource-heavy object.
 To ensure centralized and consistent access to certain services or properties.
 To make it easier to manage global application state or configurations.
+</details>
 
         5. What is NSEntityDescription?
 Answer: NSEntityDescription is a class in Core Data that describes an entity (a data model object) within a managed object model. The entity is a representation of a table or object in your data model, and it contains information about the attributes, relationships, and configuration of an object.

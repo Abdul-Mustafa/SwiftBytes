@@ -1,5 +1,5 @@
 <details>
-<summary>1. Wha is AppDelegate in an iOS application?<summary>
+<summary>1. Wha is AppDelegate in an iOS application?</summary>
 Answer: The AppDelegate in an iOS application is a class that conforms to the UIApplicationDelegate protocol. It is responsible for handling high-level application events, such as:
 -Application launch
 -State transitions (e.g., going to the background or foreground)

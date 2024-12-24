@@ -1,0 +1,1 @@
+"UIApplication.shared.delegate:" This gives access to the shared AppDelegate instance of the app, which is responsible for managing the Core Data stack.

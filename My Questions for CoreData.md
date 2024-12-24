@@ -7,15 +7,14 @@ Answer: The AppDelegate in an iOS application is a class that conforms to the UI
 -Managing the Core Data stack (if set up in the AppDelegate)
 -When the app starts, the system creates a singleton instance of the AppDelegate, which serves as the entry point for your app’s lifecycle.
 </details>
-
+<details>
 <summary>2. What is UIApplication.shared.delegate?</summary>
 Aswer: This gives access to the shared AppDelegate instance of the app, which is responsible for managing the Core Data stack.
-</summary>
+</details>
 <details>
 <summary>3.What is shared instance?</summary>
 Answer: A shared instance refers to a singleton object, meaning a single, globally accessible instance of a class that can be used throughout your app. 
 The shared instance is typically created to provide common functionality that doesn’t require multiple copies of the object.
-</details>
 In iOS development, shared instances are used to simplify access to resources or services. One common example is the UIApplication.shared instance, 
 which provides access to the application-level object.
 </details>

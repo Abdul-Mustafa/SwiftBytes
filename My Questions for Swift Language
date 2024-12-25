@@ -77,3 +77,9 @@ Type safety: Swift ensures that the type you use matches the expected type when 
 Constraints: Use where or : to restrict the generic type.
 Generics provide powerful abstraction and flexibility while maintaining the safety of Swift's strong type system.
 <details>
+<details>
+<summary>
+How to use ?? and ? in swift?
+</summary>
+https://chatgpt.com/share/676bd04b-e570-800d-aa10-04c9e1956495
+</details>

@@ -343,3 +343,8 @@ Includes the model, coordinator, and context to manage the data lifecycle.
 Makes it easier to persist, fetch, and manipulate data in iOS apps.
 Let me know if you'd like an example of how to set up or use the Core Data stack further!
 </details>
+<details>
+<summary>
+Why we create NSManagedObject subclasses?
+</summary>
+</details>

@@ -1,4 +1,5 @@
-<details>1.Generic Classes in Swift?
+<details>
+    <summary>1.Generic Classes in Swift?</summary>
 Answer:A generic class is a class that can operate on types that are specified when the class is instantiated. The generic type is represented using type parameters, enclosed in angle brackets (<T>), where T is a placeholder name for the type.
 
 Syntax for Generic Classes
@@ -76,7 +77,7 @@ T is just a placeholder: You can use any name instead of T, like Element, Key, V
 Type safety: Swift ensures that the type you use matches the expected type when you instantiate the class.
 Constraints: Use where or : to restrict the generic type.
 Generics provide powerful abstraction and flexibility while maintaining the safety of Swift's strong type system.
-<details>
+</details>
 <details>
 <summary>
 How to use ?? and ? in swift?

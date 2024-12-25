@@ -84,3 +84,8 @@ How to use ?? and ? in swift?
 </summary>
 https://chatgpt.com/share/676bd04b-e570-800d-aa10-04c9e1956495
 </details>
+<details>
+    <summary>
+        How to define function in Swift?
+    </summary>
+</details>

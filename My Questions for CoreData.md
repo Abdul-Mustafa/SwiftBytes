@@ -10,6 +10,8 @@ Answer: The AppDelegate in an iOS application is a class that conforms to the UI
 <details>
 <summary>2. What is UIApplication.shared.delegate?</summary>
 Aswer: This gives access to the shared AppDelegate instance of the app, which is responsible for managing the Core Data stack.
+          <image><img width="727" alt="image" src="https://github.com/user-attachments/assets/800803e7-735b-483e-b7af-a0c1d06386be" />
+</image>
 </details>
 <details>
 <summary>3.What is shared instance?</summary>

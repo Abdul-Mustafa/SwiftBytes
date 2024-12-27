@@ -88,20 +88,7 @@ By understanding and leveraging UserDefaults, you can create more personalized a
 
 
 </details>
-<details>
-<summary>Why do we not create a new instance for UserDefaults in UIKit?</summary>
+<details> <summary>Why do we not create a new instance for UserDefaults in UIKit?</summary> <p style="background-color: #f0f8ff; color: #333333;"> In UIKit (and iOS development in general), <code>UserDefaults</code> is a shared system that allows your app to store small amounts of data persistently. The reason we don't create a new instance of <code>UserDefaults</code> is because it is designed to be a <strong>singleton</strong>. <h3>1. Singleton Pattern</h3> <p><code>UserDefaults</code> is a <strong>singleton</strong> class, meaning there is only one instance of it throughout the entire app. The system manages the shared data storage across all parts of the app, ensuring consistency. Creating new instances would lead to separate, unshared storage, which could cause unexpected behavior and data loss or duplication.</p> <h3>2. Access to Shared Storage</h3> <p>The singleton instance of <code>UserDefaults</code> ensures that all settings and preferences are centralized and accessible from any part of the app. By using <code>UserDefaults.standard</code>, you're accessing the shared, globally available instance of the class.</p> <h3>3. Efficient Memory Management</h3> <p>Since <code>UserDefaults</code> is managed as a singleton, it’s optimized for memory and performance. Creating multiple instances would waste resources, as each instance would create its own storage reference and could lead to inefficient memory usage.</p> <h3>4. Convenience</h3> <p>Using <code>UserDefaults.standard</code> allows for a consistent, easy-to-use interface for storing and retrieving small pieces of persistent data, like user preferences, settings, or app state. Having only one instance simplifies the development process and reduces the chance for errors.</p> <h3>Example:</h3> <pre> // Correct approach: Accessing the shared instance UserDefaults.standard.set("value", forKey: "key")
+// Wrong approach: Creating a new instance (unnecessary) let userDefaults = UserDefaults() userDefaults.set("value", forKey: "key") </pre>
 
-In UIKit, we do not create a new instance of `UserDefaults` because it is designed as a shared object that provides a centralized storage system for small pieces of data (such as settings, preferences, or user information) across the entire app. The `UserDefaults` system is globally available, and the instance it provides is shared across all parts of the application.
-
-### Key Reasons:
-1. **Single Shared Instance**:  
-   The `UserDefaults` class provides a single shared instance for managing user settings. You access it through `UserDefaults.standard`. Creating a new instance would not be necessary because any part of the app that needs to interact with the preferences should use the same central storage.
-
-2. **Efficiency**:  
-   If you were to create multiple instances of `UserDefaults`, each instance would essentially be a separate storage that doesn't sync with the others. This could lead to redundant storage or inconsistencies between different parts of the app that expect the same data.
-
-3. **System Optimization**:  
-   The system is optimized to handle preferences storage centrally, making sure data is saved and loaded consistently, which is why it's unnecessary to create additional instances.
-
-In summary, `UserDefaults` is designed to be accessed through `UserDefaults.standard` as a globally shared resource, and there's no need to create new instances for different parts of the app.
-</details>
+<p>In summary, the <code>UserDefaults</code> class is designed as a singleton to provide a single, shared instance that can be accessed from anywhere in the app, ensuring data consistency and efficient resource usage. Therefore, we should always use <code>UserDefaults.standard</code>.</p> </p> </details>

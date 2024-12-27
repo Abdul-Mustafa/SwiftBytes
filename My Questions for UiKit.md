@@ -88,3 +88,22 @@ By understanding and leveraging UserDefaults, you can create more personalized a
 
 
 </details>
+<details>
+<summary>Why we do not create an instance of the `UserDefaults` class in UIKit?</summary>
+
+In iOS development, `UserDefaults` is a singleton class, which means you do not need to create an instance of it. Instead, you can directly use its shared instance via `UserDefaults.standard`. This is due to the **singleton pattern**, which ensures there is only one instance of `UserDefaults` for the entire application.
+
+### Explanation:
+
+- **Singleton Pattern**: The singleton pattern ensures that a class has only one instance throughout the application’s lifecycle. The shared instance of `UserDefaults` is accessed through `UserDefaults.standard`, meaning you do not need to create an object of `UserDefaults` to use it.
+  
+- **Why No Instance Creation?**: Since `UserDefaults` follows the singleton pattern, calling `UserDefaults.standard` gives you access to the same instance every time. This avoids the need to instantiate it repeatedly, making the code simpler and more memory-efficient.
+
+Here’s an example of how you use it:
+
+```swift
+// Saving a value
+UserDefaults.standard.set("Hello, World!", forKey: "greeting")
+
+// Retrieving a value
+let greeting = UserDefaults.standard.string(forKey: "greeting")

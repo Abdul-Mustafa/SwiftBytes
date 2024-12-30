@@ -93,102 +93,194 @@ https://chatgpt.com/share/676bd04b-e570-800d-aa10-04c9e1956495
 <details><summary>
     What are Closures, how they are different from arrow function?
 </summary>
-    # Handlers in Swift Programming Language
+# Closures in Swift
 
-Handlers in Swift are functions, closures, or blocks of code that are used as callbacks or to handle specific tasks. They are commonly employed to execute a piece of code in response to an event, such as a network request completion, user interaction, or an asynchronous operation.
+Closures are self-contained blocks of functionality that can be passed around and used in your code. They can capture and store references to variables and constants from the surrounding context. Swift's closures are similar to lambdas in other programming languages.
 
 ---
 
-## **What are Closures?**
+## Syntax
 
-Closures in Swift are self-contained blocks of functionality that can be passed around and used in your code. They are similar to functions but can capture and store references to variables and constants from their surrounding context. This ability to "capture" makes closures particularly powerful for tasks like asynchronous programming and callbacks.
+The basic syntax of a closure looks like this:
 
-### **Basic Syntax of Closures in Swift**
 ```swift
 { (parameters) -> returnType in
-    // Code body
+    // Code
 }
 ```
 
-### **Example of a Closure**
+### Example:
+
 ```swift
-let greet = { (name: String) -> String in
+let greetClosure = { (name: String) -> String in
     return "Hello, \(name)!"
 }
-print(greet("Hamid")) // Output: Hello, Hamid!
+
+print(greetClosure("Hamid"))  // Output: Hello, Hamid!
 ```
 
 ---
 
-### **Using Closures as a Completion Handler**
-Closures are often used as completion handlers in asynchronous tasks.
+## Features of Closures
 
-#### Example:
+1. **Inline Functionality**: Closures can be used inline in your code.
+2. **Capture Values**: Closures can capture and modify values from their surrounding scope.
+3. **Type Inference**: Swift can infer the parameter and return types of a closure.
+4. **Shorthand Argument Names**: Closures can use shorthand argument names like `$0`, `$1`, etc.
+5. **Trailing Closure Syntax**: Closures can be written outside the parentheses of a function.
+
+---
+
+## Closures as Variables
+
+Closures can be assigned to variables and constants.
+
 ```swift
-func fetchData(completion: (String) -> Void) {
-    // Simulate a network request
-    let data = "Data received"
-    completion(data)
+let addition = { (a: Int, b: Int) -> Int in
+    return a + b
 }
 
-fetchData { data in
-    print(data) // Output: Data received
-}
+let result = addition(4, 5)
+print(result)  // Output: 9
 ```
 
 ---
 
-## **Closures vs. Functions**
+## Closures as Function Parameters
 
-| Feature           | Functions                          | Closures                                 |
-|-------------------|------------------------------------|------------------------------------------|
-| Syntax            | Named                              | Anonymous (can be stored in variables)   |
-| Use Cases         | General-purpose code reuse         | Inline tasks, callbacks, and event handling |
-| Capturing Values  | Cannot capture surrounding context | Can capture values from surrounding scope |
+Closures are often used as parameters to functions.
 
----
+### Example:
 
-## **What are Arrow Functions?**
-
-In other programming languages like JavaScript, "arrow functions" are anonymous functions with concise syntax. While Swift closures and JavaScript arrow functions are conceptually similar, they have key differences.
-
-### **Comparing Swift Closures and JavaScript Arrow Functions**
-
-#### **Similarities**
-1. **Anonymous Functions**: Both can be defined without names.
-2. **Conciseness**: Both allow concise syntax for defining logic.
-3. **Passable**: Both can be passed as arguments to other functions.
-
-#### **Differences**
-
-| Feature                        | Swift Closures                              | JavaScript Arrow Functions               |
-|--------------------------------|---------------------------------------------|------------------------------------------|
-| Syntax                         | `{ parameters -> returnType in code }`     | `(parameters) => code`                   |
-| Typing                         | Strictly typed                              | Dynamically typed                        |
-| Capturing Values               | Explicitly captures surrounding variables   | Lexically binds `this`                   |
-| Implicit Return for Single Line| Supported                                   | Supported                                |
-
----
-
-### **Examples**
-
-#### Swift Closure:
 ```swift
-let multiply = { (a: Int, b: Int) -> Int in
+func performOperation(_ operation: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    print("Result: \(operation(a, b))")
+}
+
+performOperation({ (a, b) -> Int in
     return a * b
-}
-print(multiply(2, 3)) // Output: 6
+}, 3, 4)  // Output: Result: 12
 ```
 
-#### JavaScript Arrow Function:
-```javascript
-const multiply = (a, b) => a * b;
-console.log(multiply(2, 3)); // Output: 6
+### Using Trailing Closure Syntax:
+
+```swift
+performOperation(3, 4) { (a, b) -> Int in
+    return a - b
+}  // Output: Result: -1
 ```
 
 ---
 
-## **Conclusion**
-Swift closures and JavaScript arrow functions are similar in concept—they allow for concise, anonymous functions useful for callbacks and functional programming. However, Swift closures are strongly typed and provide additional features like escaping and shorthand syntax for arguments. JavaScript arrow functions emphasize lexical `this` binding and are dynamically typed.
+## Capturing Values
+
+Closures capture constants and variables from the surrounding context. Capturing happens by reference, not by value.
+
+### Example:
+
+```swift
+func makeIncrementer(increment: Int) -> () -> Int {
+    var total = 0
+    let incrementer = {
+        total += increment
+        return total
+    }
+    return incrementer
+}
+
+let incrementByTwo = makeIncrementer(increment: 2)
+print(incrementByTwo())  // Output: 2
+print(incrementByTwo())  // Output: 4
+```
+
+---
+
+## Shorthand Argument Names
+
+Swift provides shorthand argument names like `$0`, `$1`, `$2`, etc.
+
+### Example:
+
+```swift
+let numbers = [1, 2, 3, 4, 5]
+let squaredNumbers = numbers.map { $0 * $0 }
+print(squaredNumbers)  // Output: [1, 4, 9, 16, 25]
+```
+
+---
+
+## Escaping Closures
+
+A closure is said to "escape" when it is passed as an argument to a function but is called after the function returns. You use the `@escaping` keyword to indicate that a closure can escape.
+
+### Example:
+
+```swift
+var completionHandlers: [() -> Void] = []
+
+func addCompletionHandler(handler: @escaping () -> Void) {
+    completionHandlers.append(handler)
+}
+
+addCompletionHandler {
+    print("Closure executed!")
+}
+
+completionHandlers.first?()  // Output: Closure executed!
+```
+
+---
+
+## Autoclosures
+
+An autoclosure is a closure that is automatically created to wrap an expression. It takes no arguments and is used for delayed evaluation.
+
+### Example:
+
+```swift
+func serveCustomer(_ customerProvider: @autoclosure () -> String) {
+    print("Now serving \(customerProvider())")
+}
+
+serveCustomer("Hamid")  // Output: Now serving Hamid
+```
+
+---
+
+## Common Functions Using Closures
+
+### 1. `map(_:)`
+Applies a closure to each element in a collection and returns a new collection.
+
+```swift
+let numbers = [1, 2, 3]
+let doubled = numbers.map { $0 * 2 }
+print(doubled)  // Output: [2, 4, 6]
+```
+
+### 2. `filter(_:)`
+Returns a new collection with elements that satisfy the closure condition.
+
+```swift
+let numbers = [1, 2, 3, 4]
+let evenNumbers = numbers.filter { $0 % 2 == 0 }
+print(evenNumbers)  // Output: [2, 4]
+```
+
+### 3. `reduce(_:_:)`
+Combines all elements of a collection into a single value.
+
+```swift
+let numbers = [1, 2, 3, 4]
+let sum = numbers.reduce(0) { $0 + $1 }
+print(sum)  // Output: 10
+```
+
+---
+
+## Conclusion
+
+Closures are a powerful feature of Swift that enable functional programming paradigms, callbacks, and encapsulating functionality. They are widely used in Swift's standard library and custom code to provide concise, expressive, and reusable functionality.
+
 
 </details>

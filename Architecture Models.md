@@ -1,4 +1,4 @@
-# MVC Models Conversation
+# Architecture Models
 
 <details>
 <summary>Do we create different folders for each, like model, controller, and view, or do it in the same folder?</summary>

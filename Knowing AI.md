@@ -1,5 +1,5 @@
 <details>
-<summary># Major AI Models</summary>
+<summary>Major AI Models</summary>
 
 ## **1. Language Models (NLP)**
 - **GPT Series (OpenAI)**: 

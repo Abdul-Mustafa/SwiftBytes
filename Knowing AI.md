@@ -1,4 +1,5 @@
-# Major AI Models
+<details>
+<summary># Major AI Models</summary>
 
 ## **1. Language Models (NLP)**
 - **GPT Series (OpenAI)**: 
@@ -121,3 +122,4 @@
   - Generalist model trained to handle diverse tasks.
 
 ---
+</details>

@@ -284,3 +284,28 @@ Closures are a powerful feature of Swift that enable functional programming para
 
 
 </details>
+
+<details>
+<summary>What does unwrapping mean in Swift?</summary>
+
+In Swift, **unwrapping** refers to accessing the value inside an optional. Optionals can hold either a value or `nil`. To safely or explicitly access the value, you need to unwrap the optional.
+
+</details>
+
+---
+
+<details>
+<summary>How to safely unwrap using `if let` or `if var`?</summary>
+
+### Using `if let` or `if var` (Safe Unwrapping)
+The `if let` construct checks whether the optional contains a value and safely unwraps it.
+
+```swift
+var name: String? = "Hamid"
+
+// Safe unwrapping
+if let unwrappedName = name {
+    print("The name is \(unwrappedName)")
+} else {
+    print("Name is nil")
+}

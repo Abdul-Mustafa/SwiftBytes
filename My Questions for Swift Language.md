@@ -289,6 +289,7 @@ Closures are a powerful feature of Swift that enable functional programming para
 <summary>What does unwrapping mean in Swift?</summary>
 
 In Swift, **unwrapping** refers to accessing the value inside an optional. Optionals can hold either a value or `nil`. To safely or explicitly access the value, you need to unwrap the optional.
+https://chatgpt.com/share/677f6af2-819c-800d-80ed-abb64a5dd344
 
 </details>
 <details>

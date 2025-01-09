@@ -291,9 +291,6 @@ Closures are a powerful feature of Swift that enable functional programming para
 In Swift, **unwrapping** refers to accessing the value inside an optional. Optionals can hold either a value or `nil`. To safely or explicitly access the value, you need to unwrap the optional.
 
 </details>
-
----
-
 <details>
 <summary>How to safely unwrap using `if let` or `if var`?</summary>
 
